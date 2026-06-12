@@ -1,5 +1,5 @@
 # CCMEO Gunshot Wound Benchmarking: Entrance vs. Exit Wound Classification
-Advanced deep learning benchmark study evaluating Convolutional Social Networks (CNN) and Vision Transformers (ViT) on forensic pathology datasets at the Cook County Medical Examiner's Office (CCMEO).
+Advanced deep learning benchmark study evaluating Convolutional Neural Networks (CNN) and Vision Transformers (ViT) on forensic pathology datasets at the Cook County Medical Examiner's Office (CCMEO).
 
 ---
 
@@ -38,15 +38,19 @@ Below is the definitive performance matrix compiled at the best-performing train
 
 ## 📈 Visualizations & Analytical Assets
 
-### 1. Integrated ROC Curves
-The Receiver Operating Characteristic (ROC) curves illustrate the true-positive vs. false-positive trade-offs across all 6 architectures. The closer the curve vaults toward the top-left corner, the superior the model's discriminative ability.
+### 1. Validation AUC Trajectory Across 20 Epochs
+The training history maps the longitudinal behavior and robustness of each framework. The starred markers ($\star$) denote the precise mathematical peak where the best checkpoint was extracted. This directly highlights how modern over-parameterized models (ConvNeXt, Swin) peak early and drift into empirical overfitting, whereas the self-supervised DINOv2 framework exhibits elite representation stability.
+![Epoch AUC Trend](epoch_auc_trend.png)
+
+### 2. Integrated ROC Curves
+The Receiver Operating Characteristic (ROC) curves illustrate the true-positive vs. false-positive trade-offs across all 6 architectures. The closer the curve vaults toward the top-left corner, the superior the model's discriminative capability.
 ![Integrated ROC Curves](curves_plot.png)
 
-### 2. Multi-Architecture Confusion Matrices
+### 3. Multi-Architecture Confusion Matrices
 A 2x3 grid mapping out the exact classification distribution (True vs. Predicted Labels) for each model. Cell values display raw counts alongside percentage ratios to show exact directional error tendencies.
 ![Confusion Matrices](confusion_matrix.png)
 
-### 3. Explainable AI (XAI): Grad-CAM Spatial Heatmaps
+### 4. Explainable AI (XAI): Grad-CAM Spatial Heatmaps
 To bridge the gap between deep learning and forensic medicine, we injected PyTorch hook systems into the final block of **ConvNeXt-V2** to map visual attention grids.
 ![Grad-CAM Visualizations](grad_cam.png)
 
@@ -62,3 +66,6 @@ To bridge the gap between deep learning and forensic medicine, we injected PyTor
 * scikit-learn, matplotlib, seaborn, opencv-python
 
 ---
+
+## 🚀 Future Works: Phase 2
+Building upon this solid baseline benchmark registry, the next iteration expands into **Multimodal Vision-Language Foundations (CLIP)**. We will evaluate zero-shot adaptation by aligning forensic gross pathology imagery with structured, textual autopsy narratives to unlock context-aware artificial intelligence.
