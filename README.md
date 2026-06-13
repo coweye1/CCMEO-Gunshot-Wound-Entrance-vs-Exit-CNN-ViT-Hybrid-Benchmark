@@ -27,7 +27,7 @@ To ensure absolute empirical integrity and eliminate visual shortcutting (e.g., 
 | **Exit Wounds** | 660 | 538 | 122 |
 | **Combined Total** | **1,639** | **1,311** | **328** |
 
-*Note: The split was executed via stratifying metrics to perfectly preserve the morphological distribution and class ratios across both subsets without overlap, enforcing the framework to rely strictly on true pathological lesion morphology rather than background metadata.*
+*Note: We carefully balanced the ratio of entrance and exit wounds across both the training and validation sets. This keeps the data distribution completely fair, forcing the AI to focus strictly on the actual shape of the wounds rather than relying on background guesswork or clever shortcuts.*
 
 ---
 
