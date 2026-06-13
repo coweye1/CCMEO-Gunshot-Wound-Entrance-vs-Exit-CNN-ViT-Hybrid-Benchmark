@@ -10,6 +10,27 @@ This repository implements and benchmarks six state-of-the-art computer vision a
 
 ---
 
+## 📊 Dataset Specification & Splitting Strategy
+The core foundation of this benchmark relies on high-resolution, certified forensic photography meticulously annotated at the Cook County Medical Examiner's Office (CCMEO). 
+
+### 🔍 Cohort Overview
+* **Temporal Range:** Data compiled continuously from **2023 to 2026**.
+* **Total Enrolled Cohort:** **315 distinct forensic autopsy cases** presenting with firearm trauma.
+* **Total Compiled Dataset:** **1,639 high-resolution images**
+
+### 🔄 Data Partitioning Matrix
+To ensure zero data leakage and guarantee empirical validation integrity, the dataset was strictly partitioned at the case-independent level, resulting in the following exact distribution:
+
+| Wound Category | Total Images | Training Set | Validation Set |
+| :--- | :---: | :---: | :---: |
+| **Entrance Wounds** | 979 | 773 | 206 |
+| **Exit Wounds** | 660 | 538 | 122 |
+| **Combined Total** | **1,639** | **1,311** | **328** |
+
+*Note: The split was executed via stratifying metrics to perfectly preserve the morphological distribution and class ratios across both subsets without overlap.*
+
+---
+
 ## 🔬 Evaluated Model Lineup & Best Checkpoints
 Six diverse deep learning backbones were trained and optimized using dynamic image resolutions matching their pre-trained infrastructures:
 
@@ -43,7 +64,7 @@ The training history maps the longitudinal behavior and robustness of each frame
 ![Epoch AUC Trend](epoch_auc_trend.png)
 
 ### 2. Integrated ROC Curves
-The Receiver Operating Characteristic (ROC) curves illustrate the true-positive vs. false-positive trade-offs across all 6 architectures. The closer the curve vaults toward the top-left corner, the superior the model's discriminative capability.
+The Receiver Operating Characteristic (ROC) curves illustrate the true-positive vs. false-positive trade-offs across all 6 architectures. The closer the curve vaults toward the top-left corner, the superior the model's discriminative ability.
 ![Integrated ROC Curves](curves_plot.png)
 
 ### 3. Multi-Architecture Confusion Matrices
