@@ -74,11 +74,11 @@ Below is the definitive performance matrix compiled at the best-performing train
 
 ### 1. Validation AUC Trajectory Across 20 Epochs
 The training history maps the longitudinal behavior and robustness of each framework. The starred markers ($\star$) denote the precise mathematical peak where the best checkpoint was extracted. This directly highlights how modern over-parameterized models (ConvNeXt, Swin) peak early and drift into empirical overfitting, whereas the self-supervised DINOv2 framework exhibits elite representation stability.
-![Epoch AUC Trend](epoch_auc_trend.png)
+![Epoch AUC Trend](consolidated_auc_trajectory.png)
 
 ### 2. Integrated ROC Curves
 The Receiver Operating Characteristic (ROC) curves illustrate the true-positive vs. false-positive trade-offs across all 6 architectures. The closer the curve vaults toward the top-left corner, the superior the model's discriminative ability.
-![Integrated ROC Curves](curves_plot.png)
+![Integrated ROC Curves](integrated_roc_curves.png)
 
 ### 3. Multi-Architecture Confusion Matrices
 A 2x3 grid mapping out the exact classification distribution (True vs. Predicted Labels) for each model. Cell values display raw counts alongside percentage ratios to show exact directional error tendencies.
