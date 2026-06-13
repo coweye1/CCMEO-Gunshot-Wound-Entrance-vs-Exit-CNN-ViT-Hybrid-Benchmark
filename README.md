@@ -20,11 +20,11 @@ The core foundation of this benchmark relies on high-resolution, certified foren
 
 ### ✂️ Manual ROI Extraction & Artifact Elimination
 To enforce the highest standard of data purity, every single image in the dataset was **manually cropped into a strict 1:1 square aspect ratio**. During this meticulous extraction process, explicit care was taken to exclude all external forensic artifacts and potential confounding variables. 
-* **Eliminated Elements:** Autopsy case number tags, surgical sutures, visible bullets/projectiles lodged near the wound, and non-cutaneous background environments.
+* **Eliminated Elements:** Autopsy case number tags, blue surgical sutures, visible bullets/projectiles lodged near the wound, and non-cutaneous background environments.
 * **Scientific Purpose:** By framing the entire image purely within the margins of intact skin and the immediate wound architecture, the AI models are strictly blocked from exploiting artificial shortcuts or background contextual metadata, forcing them to learn authentic pathological lesion morphology.
 
 ### 🔄 Data Partitioning Matrix
-To ensure absolute empirical integrity and eliminate visual shortcutting (e.g., the model "cheating" by recognizing identical skin tones or specific tattoos), the dataset was strictly partitioned at a rigorous **case-independent level**. This guarantees that all images originating from a single forensic case are restricted entirely to either the Training set or the Validation set, with zero cross-contamination.
+To ensure absolute empirical integrity, the dataset was strictly partitioned at a rigorous **case-independent level**. This guarantees that all images originating from a single forensic case are restricted entirely to either the Training set or the Validation set, with zero cross-contamination.
 
 | Wound Category | Total Images | Training Set | Validation Set |
 | :--- | :---: | :---: | :---: |
@@ -32,7 +32,10 @@ To ensure absolute empirical integrity and eliminate visual shortcutting (e.g., 
 | **Exit Wounds** | 660 | 538 | 122 |
 | **Combined Total** | **1,639** | **1,311** | **328** |
 
-*Note: We carefully balanced the ratio of entrance and exit wounds across both the training and validation sets. This keeps the data distribution completely fair, forcing the AI to focus strictly on the actual shape of the wounds rather than relying on background guesswork or clever shortcuts.*
+### ⚖️ Cost-Sensitive Learning (Class Imbalance Handling)
+Due to the baseline population asymmetry between Entrance (979 images) and Exit (660 images) samples, we injected a class-weighted penalty matrix into the optimization loss function to prevent algorithmic majority-class bias:
+* **Weighted Loss Implementation:** A specialized `nn.CrossEntropyLoss` was configured with inverse-frequency weight coefficients $W = [1.0, 1.48]$. 
+* **Scientific Purpose:** By multiplying the optimization penalty by **1.48x** whenever the model misclassifies a minority-class Exit Wound, the training pipeline actively forces the internal neural gradients to balance out and respect the unique morphology of both target classes equally.
 
 ---
 
