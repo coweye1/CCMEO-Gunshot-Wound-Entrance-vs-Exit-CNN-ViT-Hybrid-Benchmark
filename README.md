@@ -20,7 +20,7 @@ The core foundation of this benchmark relies on high-resolution, certified foren
 
 ### ✂️ Manual ROI Extraction & Artifact Elimination
 To enforce the highest standard of data purity, every single image in the dataset was **manually cropped into a strict 1:1 square aspect ratio**. During this meticulous extraction process, explicit care was taken to exclude all external forensic artifacts and potential confounding variables. 
-* **Eliminated Elements:** Autopsy case number tags, blue surgical sutures, visible bullets/projectiles lodged near the wound, and non-cutaneous background environments.
+* **Eliminated Elements:** Autopsy case number tags, surgical sutures, visible bullets/projectiles lodged near the wound, and non-cutaneous background environments.
 * **Scientific Purpose:** By framing the entire image purely within the margins of intact skin and the immediate wound architecture, the AI models are strictly blocked from exploiting artificial shortcuts or background contextual metadata, forcing them to learn authentic pathological lesion morphology.
 
 ### 🔄 Data Partitioning Matrix
