@@ -52,18 +52,17 @@ Six diverse deep learning backbones were trained and optimized using dynamic ima
 ## 📊 Benchmarking Performance Metrics
 Below is the definitive performance matrix compiled at the best-performing training epochs across all architectures:
 
-| Rank | Model Name | Architecture / Domain Type | Paradigm | Accuracy | Precision | Recall | F1-Score | ROC-AUC | Best Epoch |
-| :---: | :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| 1 | ConvNeXt-V2-Tiny | Modernized CNN | Supervised Full FT | 0.8350 | 0.8420 | 0.8250 | 0.8334 | 0.8918 | 3 |
-| 2 | DINOv2-Small | Self-Supervised ViT | Supervised Full FT | 0.8290 | 0.7750 | 0.7620 | 0.7686 | 0.8884 | 16 |
-| 3 | Swin-Tiny | Hierarchical ViT | Supervised Full FT | 0.8210 | 0.8150 | 0.8300 | 0.8224 | 0.8800 | 4 |
-| 4 | ResNet50 | Standard CNN | Supervised Full FT | 0.8110 | 0.8240 | 0.7980 | 0.8108 | 0.8526 | 15 |
-| 5 | ViT-Small | Standard ViT | Supervised Full FT | 0.8050 | 0.7980 | 0.8150 | 0.8064 | 0.8576 | 3 |
-| 6 | PLIP (Fine-tuned) | Multi-modal Pathology | Linear Head FT | 0.7988 | 0.7634 | 0.6942 | 0.7272 | 0.8422 | 3 (of 5) |
-| 7 | EfficientNet-B0 | Light-weight CNN | Supervised Full FT | 0.7420 | 0.7310 | 0.7620 | 0.7462 | 0.7940 | 20 |
-| 8 | General CLIP | Multi-modal General | Zero-shot Reasoning | 0.6280 | 0.0000 | 0.0000 | 0.0000 | 0.5746 | N/A |
-| 9 | PLIP (Zero-shot) | Multi-modal Pathology | Zero-shot Reasoning | 0.5213 | 0.4132 | 0.4567 | 0.4339 | 0.5520 | N/A |
-| 10 | BiomedCLIP | Multi-modal Medical | Zero-shot Reasoning | 0.3628 | 0.3541 | 0.5324 | 0.4251 | 0.4877 | N/A |
+| Rank | Model Name | Model Family | Parameters Type | Validation ROC-AUC | Peak Epoch |
+| :---: | :--- | :---: | :---: | :---: | :---: |
+| 🥇 | **ConvNeXt-V2-Tiny** | CNN | Full Fine-Tuning | **0.8918** | Ep 3 |
+| 🥈 | DINOv2-Small | ViT | Full Fine-Tuning | 0.8884 | Ep 16 |
+| 🥉 | Swin-Tiny | ViT | Full Fine-Tuning | 0.8800 | Ep 4 |
+| 4 | ViT-Small | ViT | Full Fine-Tuning | 0.8576 | Ep 3 |
+| 5 | ResNet50 | CNN | Full Fine-Tuning | 0.8526 | Ep 15 |
+| 6 | **BiomedCLIP** | Multi-modal | **Linear Probe (6KB)** | 0.8396 | Ep 20 |
+| 7 | **General CLIP** | Multi-modal | **Linear Probe (6KB)** | 0.8340 | Ep 19 |
+| 8 | EfficientNet-B0 | CNN | Full Fine-Tuning | 0.7940 | Ep 20 |
+| 9 | **PLIP** | Multi-modal | **Linear Probe (6KB)** | 0.7932 | Ep 19 |
 
 ### 🔑 Key Takeaways
 1. **ConvNeXt-V2-Tiny** achieved the highest overall performance with an **Accuracy of 83.5%** and a dominant **ROC-AUC of 0.8918**, proving the massive potential of modernized ConvNets in specialized clinical/forensic tasks.
