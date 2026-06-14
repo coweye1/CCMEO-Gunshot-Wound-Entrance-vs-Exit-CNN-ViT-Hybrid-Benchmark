@@ -131,10 +131,10 @@ The Receiver Operating Characteristic (ROC) curves illustrate discriminative per
 A complete 3x3 grid layout mapping out the exact classification distribution (True vs. Predicted Labels) across all 9 models. Cell values display raw sample counts alongside percentage ratios to reveal precise directional error tendencies under severe domain shifts.
 
 #### Internal Confusion Matrix Grid (CCMEO)
-![Internal Confusion Matrix 3x3](confusion_matrix_3x3.png)
+![Internal Confusion Matrix 3x3](CCMEO_9_models_internal_confusion_matrix.png)
 
 #### External Confusion Matrix Grid (GuWID)
-![External Confusion Matrix 3x3](GuWID_9_models_external_confusion_matrix_3x3_real.png)
+![External Confusion Matrix 3x3](GuWID_9_models_external_confusion_matrix.png)
 
 ### 4. Explainable AI (XAI): Visualizing AI Diagnostic Focus (Grad-CAM)
 To guarantee that the AI relies on genuine pathological features rather than background artifacts, Grad-CAM visual heatmaps highlight the exact pixel regions our top models focused on during final classification.
