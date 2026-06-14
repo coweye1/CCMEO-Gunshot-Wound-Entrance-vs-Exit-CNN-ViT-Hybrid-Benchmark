@@ -119,7 +119,7 @@ The training history maps the longitudinal convergence behavior of the 9 archite
 ### 2. Integrated ROC Curves (Internal vs. External Validation)
 The Receiver Operating Characteristic (ROC) curves illustrate discriminative performance. While standard CNN backbones like EfficientNet-B0 experience severe performance degradation when shifted to the Brazilian dataset, Hybrid and ViT networks maintain strong generalization bounds, proving their robust global context capacity.
 * **Internal ROC Curve (CCMEO):** `CCMEO_9_models_integrated_roc_curves_official.png`
-* **External ROC Curve (GuWID):** `GuWID_9_models_external_roc_curves_real.png`
+* **External ROC Curve (GuWID):** `GuWID_9_models_external_roc_curves.png`
 
 ### 3. Multi-Architecture Confusion Matrices (3x3 Grid Layout)
 A complete 3x3 grid layout mapping out the exact classification distribution (True vs. Predicted Labels) across all 9 models. Cell values display raw sample counts alongside percentage ratios to reveal precise directional error tendencies under severe domain shifts.
