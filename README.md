@@ -42,15 +42,15 @@ To ensure completely unbiased and fair diagnostic training, we applied a statist
 ---
 
 ## 🇧🇷 External Validation Cohort (Brazil GuWID Dataset)
-To stress-test the domain generalization limits and prevent source-dataset bias, we introduced the completely independent **Gunshot Wound Image Database (GuWID)**. This dataset is compiled and hosted by the National University of Brasília (UnB), Brazil, and is officially accessible via their public repository: [pedrogarciafreitas/GuWID-UnB](https://github.com/pedrogarciafreitas/GuWID-UnB). 
+To stress-test the domain generalization limits and prevent source-dataset bias, we introduced the completely independent **Gunshot Wound Image Database (GuWID)** compiled by the National University of Brasília (UnB), Brazil. This benchmark dataset is officially accessible via their public repository: [pedrogarciafreitas/GuWID-UnB](https://github.com/pedrogarciafreitas/GuWID-UnB). 
 
-This benchmark dataset serves as a rigorous, cross-national "Final Exam" representing a major out-of-distribution (OOD) shift in forensic imaging setups.
+Serving as a rigorous cross-national "Final Exam," this out-of-distribution (OOD) cohort challenges the models across severe demographic and acquisition protocol shifts.
 
-| Wound Category | Source Dataset Region | Total Images | Evaluation Use |
-| :--- | :---: | :---: | :---: |
-| **Entrance Wounds** | National University of Brasília | **1,883 images** | External Validation |
-| **Exit Wounds** | National University of Brasília | **671 images** | External Validation |
-| **Combined Total** | **Federation of Brazil (UnB)** | **2,554 images** | **Robustness Stress-Test** |
+| Wound Category (GuWID External Evaluation Cohort) | Total Images |
+| :--- | :---: |
+| **Entrance Wounds** | **1,883 images** |
+| **Exit Wounds** | **671 images** |
+| **Combined Total (Robustness Stress-Test)** | **2,554 images** |
 
 * **Scale Contrast:** The external testing cohort (**2,554 images**) is significantly larger than the internal validation subset (**328 images**), providing immense statistical power to evaluate true real-world diagnostic performance and algorithmic clinical safety across continents.
 
