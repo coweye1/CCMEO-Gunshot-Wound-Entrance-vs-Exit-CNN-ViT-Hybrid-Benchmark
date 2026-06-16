@@ -8,9 +8,9 @@ Advanced deep learning benchmark study evaluating Convolutional Network-based (C
 ### 💡 Quick & Easy Summary
 > 🔍 **"Which image analysis AI model is the smartest at distinguishing a bullet's entrance wound from its exit wound?"**
 > 
-> This repository is a comprehensive **AI Performance Exam (Benchmark Study)** designed to answer that exact question for forensic pathology. 
+> This repository presents a comprehensive **AI Performance Exam (Benchmark Study)** that I designed to answer that exact question for forensic pathology. 
 > 
-> We trained **9 state-of-the-art computer vision models** using real-world, certified autopsy photography from the **Cook County Medical Examiner's Office (CCMEO)**. Then, to test their true diagnostic adaptability, we gave them a completely blind "Final Exam" using a massive independent dataset from Brazil (**GuWID-UnB**). This allows us to objectively rank how well different artificial brains handle real-world clinical variations without cheating or over-fitting to a single institution.
+> I personally trained **9 state-of-the-art computer vision models** using real-world, certified autopsy photography from the **Cook County Medical Examiner's Office (CCMEO)**. Then, to test their true diagnostic adaptability, I gave them a completely blind "Final Exam" using a massive independent dataset from Brazil (**GuWID-UnB**). This allows me to objectively rank how well different artificial brains handle real-world clinical variations without cheating or over-fitting to a single institution.
 
 In forensic pathology, distinguishing between **Entrance Wounds** and **Exit Wounds** is a critical task for reconstructing shooting incidents, determining bullet trajectories, and providing medical-legal testimony. 
 
