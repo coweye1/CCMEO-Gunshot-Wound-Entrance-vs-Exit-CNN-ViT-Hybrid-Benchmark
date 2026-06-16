@@ -31,11 +31,10 @@ The core foundation of this benchmark relies on high-resolution, certified foren
 ### ✂️ Manual ROI Extraction & Artifact Elimination (Preventing AI "Cheating")
 > 💡 **Why this process matters:** AI models are notoriously "lazy" copycats. If an autopsy photo contains a case number tag, a specific hospital setting, or surgical sutures, the AI might simply memorize those artificial shortcuts to pass the exam instead of actually evaluating the wound. 
 > 
-> To block this, I spent hours manually cropping every single image into a strict 1:1 square aspect ratio (Region of Interest - ROI), stripping away all background context so the artificial brain is forced to focus purely on true medical pathology.
+> To block this, I spent hours manually cropping every single image into a strict 1:1 square aspect ratio (Region of Interest - ROI), forcing the artificial brain to learn authentic, universal pathological features purely from the wound itself.
 
-During this meticulous manual extraction process, explicit care was taken to exclude all external forensic artifacts and potential confounding variables:
+During this meticulous manual extraction process, the following confounding variables were strictly excluded from the frame:
 * **Eliminated Elements:** Autopsy case number tags, surgical sutures, visible bullets or projectiles lodged near the wound, and non-cutaneous background environments.
-* **Scientific Purpose:** By framing the entire image purely within the margins of intact skin and the immediate wound architecture, the AI models are strictly blocked from exploiting artificial shortcuts or background contextual metadata, forcing them to learn authentic, universal pathological lesion morphology.
 
 ### 🔄 Data Partitioning Matrix
 To ensure absolute empirical integrity, the dataset was strictly partitioned at a rigorous **case-independent level**. This guarantees that all images originating from a single forensic case are restricted entirely to either the Training set or the Validation set, with zero cross-contamination.
