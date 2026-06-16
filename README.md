@@ -27,8 +27,7 @@ The core foundation of this benchmark relies on high-resolution, certified foren
 * **Total Compiled Dataset:** **1,639 high-resolution images**
 
 ### ✂️ Manual ROI Extraction & Artifact Elimination (Preventing AI "Cheating")
-I spent hours manually cropping every single image into a strict 1:1 square aspect ratio (Region of Interest - ROI) to isolate the immediate wound architecture. During this meticulous manual extraction process, explicit care was taken to strictly exclude the following confounding variables from the frame:
-* **Eliminated Elements:** Autopsy case number tags, surgical sutures, visible bullets or projectiles lodged near the wound, and non-cutaneous background environments.
+I spent hours manually cropping every single image into a strict 1:1 square aspect ratio (Region of Interest - ROI) to isolate the immediate wound architecture. During this meticulous manual extraction process, explicit care was taken to strictly exclude all confounding variables from the frame, such as autopsy case number tags, surgical sutures, visible bullets or projectiles lodged near the wound, and non-cutaneous background environments.
 
 > 💡 **Why this process matters?**
 > AI models are notoriously "lazy" copycats. If an autopsy photo contains a case number tag, a specific hospital setting, or surgical sutures, the AI might simply memorize those artificial shortcuts to pass the exam instead of actually evaluating the wound. 
