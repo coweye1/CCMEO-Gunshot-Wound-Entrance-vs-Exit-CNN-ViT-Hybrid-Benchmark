@@ -57,7 +57,7 @@ In this dataset, there are naturally more entrance wound images (979) than exit 
 
 To ensure completely unbiased and fair diagnostic training, I applied a statistical correction to the loss function (`nn.CrossEntropyLoss`).
 
-> 💡 **Why this mathematical weight matters (How the 1.48x Penalty is Calculated)?**
+> 💡 **Why this mathematical weight matters?**
 > Imagine an AI taking a 100-question exam where **80 questions are Entrance Wounds** and **only 20 are Exit Wounds**. A lazy AI could simply guess "Entrance" for every single question without studying at all, and it would still score a deceptive 80%. 
 > 
 > To balance the scales in this hypothetical exam, we must mathematically make the rarer questions more valuable: since Entrance wounds outnumber Exit wounds by **4 to 1 (80:20)**, misclassifying a rare Exit wound should carry a **4.0x higher penalty**.
