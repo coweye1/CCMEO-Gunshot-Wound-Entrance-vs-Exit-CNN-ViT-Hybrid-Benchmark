@@ -4,17 +4,11 @@ Advanced deep learning benchmark study evaluating Convolutional Neural Network-b
 ---
 
 ## 📌 Project Overview
+In forensic pathology, distinguishing between **Entrance Wounds** and **Exit Wounds** is a critical task for reconstructing shooting incidents, determining bullet trajectories, and providing medical-legal testimony. To objective automate and analyze these complex morphological patterns, this repository presents a comprehensive deep learning benchmark study evaluating 9 state-of-the-art computer vision architectures across three distinct algorithmic approaches: **Convolutional Neural Networks (CNN)**, **Vision Transformers (ViT)**, and **CNN-ViT Hybrid** models.
 
-### 💡 Quick & Easy Summary
-> 🔍 **"Which image analysis AI model is the smartest at distinguishing a bullet's entrance wound from its exit wound?"**
-> 
-> This repository presents a comprehensive **AI Performance Exam (Benchmark Study)** that I designed to answer that exact question for forensic pathology. 
-> 
-> I personally configured, trained, and evaluated 9 established Image AI models using real-world, certified autopsy photography from the **Cook County Medical Examiner's Office (CCMEO)**. Then, to test their true diagnostic adaptability, I challenged them with a completely blind "Final Exam" using the independent **GuWID-UnB dataset** (constructed by Renato Queiroz Nogueira Lira et al., in collaboration with the University of Brasília and other institutions). 
+I personally configured, trained, and optimized these 9 architectures using pure PyTorch and `timm`, leveraging real-world, certified forensic autopsy photography continuously compiled from the **Cook County Medical Examiner's Office (CCMEO)**. 
 
-In forensic pathology, distinguishing between **Entrance Wounds** and **Exit Wounds** is a critical task for reconstructing shooting incidents, determining bullet trajectories, and providing medical-legal testimony. 
-
-This repository implements and benchmarks 9 state-of-the-art computer vision architectures, divided into **3 different algorithmic approaches to image recognition**: **Convolutional Neural Networks (CNN)**, **Vision Transformers (ViT)**, and **CNN-ViT Hybrid** models. The goal of this study is to evaluate their capacity to automate and objectively analyze morphology patterns in gunshot wound trauma. Leveraging pure PyTorch and `timm`, all models were evaluated on high-resolution forensic autopsy datasets from the CCMEO and further stress-tested via large-scale external validation to verify real-world algorithmic safety and robustness against severe domain shifts.
+To evaluate true diagnostic adaptability and verify real-world algorithmic safety against severe domain shifts, the trained networks were subjected to a completely blind "Final Exam" using the independent, out-of-distribution (OOD) **GuWID-UnB dataset** (constructed by Renato Queiroz Nogueira Lira et al., in collaboration with the University of Brasília). By ranking how well these models generalize to an entirely different institutional framework—with distinct lighting, camera gear, and demographics—this study serves as an rigorous stress-test to discover which visual processing mechanics can truly master invariant, authentic pathological features rather than simply memorizing site-specific photography styles.
 
 ---
 
