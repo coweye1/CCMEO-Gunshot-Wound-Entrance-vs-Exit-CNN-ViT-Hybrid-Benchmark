@@ -4,11 +4,11 @@ Advanced deep learning benchmark study evaluating Convolutional Neural Network-b
 ---
 
 ## 📌 Project Overview
-In forensic pathology, distinguishing between **Entrance Wounds** and **Exit Wounds** is a critical task for reconstructing shooting incidents, determining bullet trajectories, and providing medical-legal testimony. To objective automate and analyze these complex morphological patterns, this repository presents a comprehensive deep learning benchmark study evaluating 9 state-of-the-art computer vision architectures across three distinct algorithmic approaches: **Convolutional Neural Networks (CNN)**, **Vision Transformers (ViT)**, and **CNN-ViT Hybrid** models.
+In forensic pathology, distinguishing between **Entrance Wounds** and **Exit Wounds** is a critical task for reconstructing shooting incidents, determining bullet trajectories, and providing medical-legal testimony. To automate and objectively analyze these complex morphological patterns, this repository presents a comprehensive deep learning benchmark study evaluating 9 state-of-the-art computer vision architectures across three distinct algorithmic approaches: **Convolutional Neural Networks (CNN)**, **Vision Transformers (ViT)**, and **CNN-ViT Hybrid** models.
 
 I personally configured, trained, and optimized these 9 architectures using pure PyTorch and `timm`, leveraging real-world, certified forensic autopsy photography continuously compiled from the **Cook County Medical Examiner's Office (CCMEO)**. 
 
-To evaluate true diagnostic adaptability and verify real-world algorithmic safety against severe domain shifts, the trained networks were subjected to a completely blind "Final Exam" using the independent, out-of-distribution (OOD) **GuWID-UnB dataset** (constructed by Renato Queiroz Nogueira Lira et al., in collaboration with the University of Brasília).
+To evaluate true diagnostic adaptability and verify real-world algorithmic robustness against severe domain shifts, the trained networks were further subjected to a completely blind external validation using the independent, out-of-distribution (OOD) **GuWID-UnB dataset** (constructed by Renato Queiroz Nogueira Lira et al., in collaboration with the University of Brasília).
 
 ---
 
@@ -54,7 +54,8 @@ To ensure completely unbiased and fair diagnostic training, I applied a statisti
 > 
 > To balance the scales in this hypothetical exam, we must mathematically make the rarer questions more valuable: since Entrance wounds outnumber Exit wounds by **4 to 1 (80:20)**, misclassifying a rare Exit wound should carry a **4.0x higher penalty**.
 > 
-> **Applying this to my actual dataset:** > My real-world training set contains **773 Entrance Wounds** and **538 Exit Wounds**. To find the exact fair penalty, I calculated the inverse ratio of the classes:
+> **Applying this to my actual dataset:** 
+> My real-world training set contains **773 Entrance Wounds** and **538 Exit Wounds**. To find the exact fair penalty, I calculated the inverse ratio of the classes:
 > 
 > $$\text{Penalty Weight for Exit Wounds} = \frac{773 \text{ (Entrance Images)}}{538 \text{ (Exit Images)}} \approx 1.48$$
 > 
@@ -100,12 +101,12 @@ Performance quantified via full fine-tuning on the case-independent internal val
 | Rank | Model Name | Model Family | Accuracy | Precision | Recall (Sens.) | F1-Score | **Peak Validation ROC-AUC** | Peak Epoch |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 1 | **ConvNeXt-V2-Tiny** | CNN | 0.8354 | 0.7698 | 0.7951 | 0.7823 | **0.8959** | Ep 10 |
-| 2 | **DINOv2-Small** | **ViT** | 0.8201 | 0.7890 | 0.7049 | 0.7446 | **0.8821** | Ep 12 |
+| 2 | **DINOv2-Small** | ViT | 0.8201 | 0.7890 | 0.7049 | 0.7446 | **0.8821** | Ep 12 |
 | 3 | **Visformer-Small** | CNN-ViT Hybrid | 0.8079 | 0.7185 | 0.7951 | 0.7549 | **0.8792** | Ep 6 |
 | 4 | CoAtNet-0 | CNN-ViT Hybrid | 0.8049 | 0.7132 | 0.7951 | 0.7519 | 0.8767 | Ep 4 |
-| 5 | ViT-Small | **ViT** | 0.7835 | 0.7802 | 0.5820 | 0.6667 | 0.8578 | Ep 12 |
+| 5 | ViT-Small | ViT | 0.7835 | 0.7802 | 0.5820 | 0.6667 | 0.8578 | Ep 12 |
 | 6 | MaxViT-Tiny | CNN-ViT Hybrid | 0.8018 | 0.7209 | 0.7623 | 0.7410 | 0.8638 | Ep 11 |
-| 7 | DeiT-Tiny | **ViT** | 0.7713 | 0.6478 | 0.8443 | 0.7331 | 0.8532 | Ep 9 |
+| 7 | DeiT-Tiny | ViT | 0.7713 | 0.6478 | 0.8443 | 0.7331 | 0.8532 | Ep 9 |
 | 8 | ResNet50 *(Baseline)* | CNN | 0.7561 | 0.6329 | 0.8197 | 0.7143 | 0.8265 | Ep 17 |
 | 9 | EfficientNet-B0 | CNN | 0.7226 | 0.6115 | 0.6967 | 0.6513 | 0.7871 | Ep 20 |
 
@@ -115,13 +116,13 @@ Robustness check on completely independent data (2,554 images) with cross-valida
 | Rank | Model Name | Model Family | Accuracy | Precision | Recall (Sens.) | F1-Score | **External ROC-AUC** | **$\Delta$ ROC-AUC** |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 1 | **MaxViT-Tiny** | CNN-ViT Hybrid | 0.8125 | 0.6203 | **0.7377** | **0.6739** | **0.8577** | $-0.0061$ |
-| 2 | **ViT-Small** | **ViT** | **0.8250** | **0.7000** | 0.5842 | 0.6369 | **0.8550** | $-0.0028$ |
+| 2 | **ViT-Small** | ViT | **0.8250** | **0.7000** | 0.5842 | 0.6369 | **0.8550** | $-0.0028$ |
 | 3 | **ConvNeXt-V2-Tiny** | CNN | 0.8097 | 0.6544 | 0.5842 | 0.6173 | 0.8467 | $-0.0492$ |
 | 4 | Visformer-Small | CNN-ViT Hybrid | 0.7929 | 0.5890 | 0.7004 | 0.6399 | 0.8438 | $-0.0354$ |
 | 5 | CoAtNet-0 | CNN-ViT Hybrid | 0.7929 | 0.5997 | 0.6364 | 0.6175 | 0.8310 | $-0.0457$ |
-| 6 | **DINOv2-Small** | **ViT** | 0.8148 | 0.6897 | 0.5365 | 0.6035 | 0.8304 | $-0.0517$ |
+| 6 | **DINOv2-Small** | ViT | 0.8148 | 0.6897 | 0.5365 | 0.6035 | 0.8304 | $-0.0517$ |
 | 7 | ResNet50 *(Baseline)* | CNN | 0.7674 | 0.5453 | 0.6900 | 0.6092 | 0.8248 | $-0.0017$ |
-| 8 | DeiT-Tiny | **ViT** | 0.7494 | 0.5161 | 0.7392 | 0.6078 | 0.8248 | $-0.0284$ |
+| 8 | DeiT-Tiny | ViT | 0.7494 | 0.5161 | 0.7392 | 0.6078 | 0.8248 | $-0.0284$ |
 | 9 | EfficientNet-B0 | CNN | 0.6934 | 0.4395 | 0.6066 | 0.5097 | 0.7322 | $-0.0549$ |
 
 ### 🔑 Key Takeaways & Robustness Generalization Analysis
