@@ -8,7 +8,7 @@ In forensic pathology, distinguishing between **Entrance Wounds** and **Exit Wou
 
 I personally configured, trained, and optimized these 9 architectures using pure PyTorch and `timm`, leveraging real-world, certified forensic autopsy photography continuously compiled from the **Cook County Medical Examiner's Office (CCMEO)**. 
 
-To evaluate true diagnostic adaptability and verify real-world algorithmic safety against severe domain shifts, the trained networks were subjected to a completely blind "Final Exam" using the independent, out-of-distribution (OOD) **GuWID-UnB dataset** (constructed by Renato Queiroz Nogueira Lira et al., in collaboration with the University of Brasília). By ranking how well these models generalize to an entirely different institutional framework—with distinct lighting, camera gear, and demographics—this study serves as an rigorous stress-test to discover which visual processing mechanics can truly master invariant, authentic pathological features rather than simply memorizing site-specific photography styles.
+To evaluate true diagnostic adaptability and verify real-world algorithmic safety against severe domain shifts, the trained networks were subjected to a completely blind "Final Exam" using the independent, out-of-distribution (OOD) **GuWID-UnB dataset** (constructed by Renato Queiroz Nogueira Lira et al., in collaboration with the University of Brasília).
 
 ---
 
