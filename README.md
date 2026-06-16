@@ -111,19 +111,19 @@ Performance quantified via full fine-tuning on the case-independent internal val
 | 9 | EfficientNet-B0 | CNN | 0.7226 | 0.6115 | 0.6967 | 0.6513 | 0.7871 | Ep 20 |
 
 ### 🔍 External Validation (GuWID-UnB Dataset - Out-of-Distribution)
-Robustness check on completely independent data (2,554 images) with cross-validation ranking and directional performance gap analysis ($\Delta$ ROC-AUC = External AUC - Internal AUC).
+Robustness check on completely independent data (2,554 images) with cross-validation ranking and directional performance gap analysis ($\Delta$ ROC-AUC = External AUC - Internal AUC). *Rank values display the final external rank alongside the shift from internal validation (Internal Rank $\rightarrow$ External Rank).*
 
-| Rank | Model Name | Model Family | Accuracy | Precision | Recall (Sens.) | F1-Score | **External ROC-AUC** | **$\Delta$ ROC-AUC** |
+| Rank (Shift) | Model Name | Model Family | Accuracy | Precision | Recall (Sens.) | F1-Score | **External ROC-AUC** | **$\Delta$ ROC-AUC** |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 1 | **MaxViT-Tiny** | CNN-ViT Hybrid | 0.8125 | 0.6203 | **0.7377** | **0.6739** | **0.8577** | $-0.0061$ |
-| 2 | **ViT-Small** | ViT | **0.8250** | **0.7000** | 0.5842 | 0.6369 | **0.8550** | $-0.0028$ |
-| 3 | **ConvNeXt-V2-Tiny** | CNN | 0.8097 | 0.6544 | 0.5842 | 0.6173 | 0.8467 | $-0.0492$ |
-| 4 | Visformer-Small | CNN-ViT Hybrid | 0.7929 | 0.5890 | 0.7004 | 0.6399 | 0.8438 | $-0.0354$ |
-| 5 | CoAtNet-0 | CNN-ViT Hybrid | 0.7929 | 0.5997 | 0.6364 | 0.6175 | 0.8310 | $-0.0457$ |
-| 6 | **DINOv2-Small** | ViT | 0.8148 | 0.6897 | 0.5365 | 0.6035 | 0.8304 | $-0.0517$ |
-| 7 | ResNet50 *(Baseline)* | CNN | 0.7674 | 0.5453 | 0.6900 | 0.6092 | 0.8248 | $-0.0017$ |
-| 8 | DeiT-Tiny | ViT | 0.7494 | 0.5161 | 0.7392 | 0.6078 | 0.8248 | $-0.0284$ |
-| 9 | EfficientNet-B0 | CNN | 0.6934 | 0.4395 | 0.6066 | 0.5097 | 0.7322 | $-0.0549$ |
+| **1 (▲ 5)** | **MaxViT-Tiny** | CNN-ViT Hybrid | 0.8125 | 0.6203 | **0.7377** | **0.6739** | **0.8577** | $-0.0061$ |
+| **2 (▲ 3)** | **ViT-Small** | ViT | **0.8250** | **0.7000** | 0.5842 | 0.6369 | **0.8550** | $-0.0028$ |
+| **3 (▼ 2)** | **ConvNeXt-V2-Tiny** | CNN | 0.8097 | 0.6544 | 0.5842 | 0.6173 | 0.8467 | $-0.0492$ |
+| **4 (▼ 1)** | Visformer-Small | CNN-ViT Hybrid | 0.7929 | 0.5890 | 0.7004 | 0.6399 | 0.8438 | $-0.0354$ |
+| **5 (▼ 1)** | CoAtNet-0 | CNN-ViT Hybrid | 0.7929 | 0.5997 | 0.6364 | 0.6175 | 0.8310 | $-0.0457$ |
+| **6 (▼ 4)** | **DINOv2-Small** | ViT | 0.8148 | 0.6897 | 0.5365 | 0.6035 | 0.8304 | $-0.0517$ |
+| **7 (▲ 1)** | ResNet50 *(Baseline)* | CNN | 0.7674 | 0.5453 | 0.6900 | 0.6092 | 0.8248 | $-0.0017$ |
+| **8 (▼ 1)** | DeiT-Tiny | ViT | 0.7494 | 0.5161 | 0.7392 | 0.6078 | 0.8248 | $-0.0284$ |
+| **9 (—)** | EfficientNet-B0 | CNN | 0.6934 | 0.4395 | 0.6066 | 0.5097 | 0.7322 | $-0.0549$ |
 
 ### 🔑 Key Takeaways & Robustness Generalization Analysis
 
