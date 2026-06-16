@@ -1,5 +1,5 @@
 # CCMEO Gunshot Wound Image Analysis AI Benchmarking: Entrance vs. Exit Wound Classification
-Advanced deep learning benchmark study evaluating Convolutional Network-based (CNN), Vision Transformer-based (ViT), and Hybrid SOTA Architectures on forensic pathology datasets at the Cook County Medical Examiner's Office (CCMEO) with Large-Scale External Validation on the GuWID-UnB Dataset.
+Advanced deep learning benchmark study evaluating Convolutional Neural Network-based (CNN), Vision Transformer-based (ViT), and Hybrid SOTA Architectures on forensic pathology datasets at the Cook County Medical Examiner's Office (CCMEO) with Large-Scale External Validation on the GuWID-UnB Dataset.
 
 ---
 
@@ -16,7 +16,7 @@ Advanced deep learning benchmark study evaluating Convolutional Network-based (C
 
 In forensic pathology, distinguishing between **Entrance Wounds** and **Exit Wounds** is a critical task for reconstructing shooting incidents, determining bullet trajectories, and providing medical-legal testimony. 
 
-This repository implements and benchmarks nine state-of-the-art computer vision architectures divided across three distinct design paradigms (CNNs, Vision Transformers, and Hybrid CNN-ViT Models) to automate and objectively analyze morphology patterns in gunshot wound trauma. Leveraging pure PyTorch and `timm`, all models were evaluated on high-resolution forensic autopsy datasets from the CCMEO and further stress-tested via large-scale external validation to verify real-world algorithmic safety and robustness against severe domain shifts.
+This repository implements and benchmarks 9 state-of-the-art computer vision architectures, divided into **3 different algorithmic approaches to image recognition**: **Convolutional Neural Networks (CNN)**, **Vision Transformers (ViT)**, and **Hybrid CNN-ViT models**. The goal of this study is to evaluate their capacity to automate and objectively analyze morphology patterns in gunshot wound trauma. Leveraging pure PyTorch and `timm`, all models were evaluated on high-resolution forensic autopsy datasets from the CCMEO and further stress-tested via large-scale external validation to verify real-world algorithmic safety and robustness against severe domain shifts.
 
 ---
 
