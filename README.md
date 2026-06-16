@@ -12,7 +12,6 @@ Advanced deep learning benchmark study evaluating Convolutional Neural Network-b
 > 
 > I personally configured, trained, and evaluated 9 established Image AI models using real-world, certified autopsy photography from the **Cook County Medical Examiner's Office (CCMEO)**. Then, to test their true diagnostic adaptability, I challenged them with a completely blind "Final Exam" using the independent **GuWID-UnB dataset** (constructed by Renato Queiroz Nogueira Lira et al., in collaboration with the University of Brasília and other institutions). 
 > 
-> **Why this setup?** If a model trained on CCMEO data can still successfully classify images from an entirely different dataset (with different lighting, cameras, and backgrounds), it proves that the AI is not just "cheating" by memorizing site-specific photography styles. Instead, it demonstrates that the AI has truly learned to analyze the universal, authentic pathological features of gunshot wounds. This benchmarking strategy allows me to objectively evaluate and rank how well these models generalize to real-world forensic environments across different institutions.
 
 In forensic pathology, distinguishing between **Entrance Wounds** and **Exit Wounds** is a critical task for reconstructing shooting incidents, determining bullet trajectories, and providing medical-legal testimony. 
 
@@ -71,9 +70,12 @@ To ensure completely unbiased and fair diagnostic training, I applied a statisti
 ---
 
 ## 🔬 External Validation Cohort (GuWID-UnB Dataset)
-To stress-test the domain generalization limits and prevent source-dataset bias, we introduced the completely independent **Gunshot Wound Image Database (GuWID)**. This dataset was constructed as part of the study titled *"Deep Learning-Based Human Gunshot Wounds Classification"* by Renato Queiroz Nogueira Lira et al., in collaboration with the University of Brasília (UnB) and other institutions. The benchmark dataset is officially accessible via their public repository: [pedrogarciafreitas/GuWID-UnB](https://github.com/pedrogarciafreitas/GuWID-UnB).
+To stress-test the domain generalization limits and prevent source-dataset bias, I introduced the completely independent **Gunshot Wound Image Database (GuWID)**. This dataset was constructed as part of the study titled *"Deep Learning-Based Human Gunshot Wounds Classification"* by Renato Queiroz Nogueira Lira et al., in collaboration with the University of Brasília (UnB) and other institutions. The benchmark dataset is officially accessible via their public repository: [pedrogarciafreitas/GuWID-UnB](https://github.com/pedrogarciafreitas/GuWID-UnB).
 
 Serving as a rigorous external "Final Exam," this out-of-distribution (OOD) cohort challenges the models across severe demographic shifts, distinct photography setups, and varied lesion-acquisition protocols.
+
+> 💡 **Why this setup matters?**
+> If an AI model trained exclusively on CCMEO data can still successfully classify images from an entirely independent dataset (with different lighting, camera gear, and backgrounds), it proves that the algorithm is not just "cheating" by memorizing site-specific photography styles. Instead, it demonstrates that the AI has truly mastered the universal, authentic pathological features of gunshot wounds. This benchmarking strategy allows me to objectively evaluate and rank how well these models generalize to real-world forensic environments across different international institutions.
 
 | Wound Category (GuWID External Evaluation Cohort) | Total Images |
 | :--- | :---: |
