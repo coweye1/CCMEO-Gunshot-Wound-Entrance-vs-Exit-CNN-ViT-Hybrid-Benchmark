@@ -14,7 +14,7 @@ Advanced deep learning benchmark study evaluating Convolutional Neural Network-b
 
 In forensic pathology, distinguishing between **Entrance Wounds** and **Exit Wounds** is a critical task for reconstructing shooting incidents, determining bullet trajectories, and providing medical-legal testimony. 
 
-This repository implements and benchmarks 9 state-of-the-art computer vision architectures, divided into **3 different algorithmic approaches to image recognition**: **Convolutional Neural Networks (CNN)**, **Vision Transformers (ViT)**, and **CNN-ViT Hybrid models**. The goal of this study is to evaluate their capacity to automate and objectively analyze morphology patterns in gunshot wound trauma. Leveraging pure PyTorch and `timm`, all models were evaluated on high-resolution forensic autopsy datasets from the CCMEO and further stress-tested via large-scale external validation to verify real-world algorithmic safety and robustness against severe domain shifts.
+This repository implements and benchmarks 9 state-of-the-art computer vision architectures, divided into **3 different algorithmic approaches to image recognition**: **Convolutional Neural Networks (CNN)**, **Vision Transformers (ViT)**, and **CNN-ViT Hybrid** models. The goal of this study is to evaluate their capacity to automate and objectively analyze morphology patterns in gunshot wound trauma. Leveraging pure PyTorch and `timm`, all models were evaluated on high-resolution forensic autopsy datasets from the CCMEO and further stress-tested via large-scale external validation to verify real-world algorithmic safety and robustness against severe domain shifts.
 
 ---
 
@@ -29,7 +29,7 @@ The core foundation of this benchmark relies on high-resolution, certified foren
 ### ✂️ Manual ROI Extraction & Artifact Elimination (Preventing AI "Cheating")
 I spent hours manually cropping every single image into a strict 1:1 square aspect ratio (Region of Interest - ROI) to isolate the immediate wound architecture. During this meticulous manual extraction process, explicit care was taken to strictly exclude all confounding variables from the frame, such as autopsy case number tags, surgical sutures, visible bullets or projectiles lodged near the wound, and non-cutaneous background environments.
 
-> 💡 **Why this process matters?**
+> 💡 **Why this process matters — To Prevent AI "Cheating"**
 > AI models are notoriously "lazy" copycats. If an autopsy photo contains a case number tag, a specific hospital setting, or surgical sutures, the AI might simply memorize those artificial shortcuts to pass the exam instead of actually evaluating the wound. 
 > 
 > By completely stripping away these external artifacts and background context, I forced the artificial brain to learn authentic, universal pathological features purely from the morphology of the wound itself.
@@ -91,7 +91,7 @@ Nine diverse deep learning backbones across three architectural families were tr
 
 * **CNN Family (Solid Lines):** ResNet50, EfficientNet-B0, ConvNeXt-V2-Tiny
 * **Vision Transformer Family (Dashed Lines):** ViT-Small, DeiT-Tiny, DINOv2-Small (Self-Supervised)
-* **Hybrid CNN-ViT Family (Dotted Lines):** Visformer-Small, CoAtNet-0, MaxViT-Tiny
+* **CNN-ViT Hybrid Family (Dotted Lines):** Visformer-Small, CoAtNet-0, MaxViT-Tiny
 
 ---
 
@@ -107,10 +107,10 @@ Performance quantified via full fine-tuning on the case-independent internal val
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 1 | **ConvNeXt-V2-Tiny** | CNN | 0.8354 | 0.7698 | 0.7951 | 0.7823 | **0.8959** | Ep 10 |
 | 2 | **DINOv2-Small** | ViT | 0.8201 | 0.7890 | 0.7049 | 0.7446 | **0.8821** | Ep 12 |
-| 3 | **Visformer-Small** | Hybrid | 0.8079 | 0.7185 | 0.7951 | 0.7549 | **0.8792** | Ep 6 |
-| 4 | CoAtNet-0 | Hybrid | 0.8049 | 0.7132 | 0.7951 | 0.7519 | 0.8767 | Ep 4 |
+| 3 | **Visformer-Small** | CNN-ViT Hybrid | 0.8079 | 0.7185 | 0.7951 | 0.7549 | **0.8792** | Ep 6 |
+| 4 | CoAtNet-0 | CNN-ViT Hybrid | 0.8049 | 0.7132 | 0.7951 | 0.7519 | 0.8767 | Ep 4 |
 | 5 | ViT-Small | ViT | 0.7835 | 0.7802 | 0.5820 | 0.6667 | 0.8578 | Ep 12 |
-| 6 | MaxViT-Tiny | Hybrid | 0.8018 | 0.7209 | 0.7623 | 0.7410 | 0.8638 | Ep 11 |
+| 6 | MaxViT-Tiny | CNN-ViT Hybrid | 0.8018 | 0.7209 | 0.7623 | 0.7410 | 0.8638 | Ep 11 |
 | 7 | DeiT-Tiny | ViT | 0.7713 | 0.6478 | 0.8443 | 0.7331 | 0.8532 | Ep 9 |
 | 8 | ResNet50 *(Baseline)* | CNN | 0.7561 | 0.6329 | 0.8197 | 0.7143 | 0.8265 | Ep 17 |
 | 9 | EfficientNet-B0 | CNN | 0.7226 | 0.6115 | 0.6967 | 0.6513 | 0.7871 | Ep 20 |
@@ -120,11 +120,11 @@ Robustness check on completely independent data (2,554 images) with cross-valida
 
 | Rank | Model Name | Model Family | Accuracy | Precision | Recall (Sens.) | F1-Score | **External ROC-AUC** | **$\Delta$ ROC-AUC** |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 1 | **MaxViT-Tiny** | Hybrid | 0.8125 | 0.6203 | **0.7377** | **0.6739** | **0.8577** | $-0.0061$ |
+| 1 | **MaxViT-Tiny** | CNN-ViT Hybrid | 0.8125 | 0.6203 | **0.7377** | **0.6739** | **0.8577** | $-0.0061$ |
 | 2 | **ViT-Small** | ViT | **0.8250** | **0.7000** | 0.5842 | 0.6369 | **0.8550** | $-0.0028$ |
 | 3 | **ConvNeXt-V2-Tiny** | CNN | 0.8097 | 0.6544 | 0.5842 | 0.6173 | 0.8467 | $-0.0492$ |
-| 4 | Visformer-Small | Hybrid | 0.7929 | 0.5890 | 0.7004 | 0.6399 | 0.8438 | $-0.0354$ |
-| 5 | CoAtNet-0 | Hybrid | 0.7929 | 0.5997 | 0.6364 | 0.6175 | 0.8310 | $-0.0457$ |
+| 4 | Visformer-Small | CNN-ViT Hybrid | 0.7929 | 0.5890 | 0.7004 | 0.6399 | 0.8438 | $-0.0354$ |
+| 5 | CoAtNet-0 | CNN-ViT Hybrid | 0.7929 | 0.5997 | 0.6364 | 0.6175 | 0.8310 | $-0.0457$ |
 | 6 | **DINOv2-Small** | ViT | 0.8148 | 0.6897 | 0.5365 | 0.6035 | 0.8304 | $-0.0517$ |
 | 7 | ResNet50 *(Baseline)* | CNN | 0.7674 | 0.5453 | 0.6900 | 0.6092 | 0.8248 | $-0.0017$ |
 | 8 | DeiT-Tiny | ViT | 0.7494 | 0.5161 | 0.7392 | 0.6078 | 0.8248 | $-0.0284$ |
@@ -136,8 +136,8 @@ Robustness check on completely independent data (2,554 images) with cross-valida
 2. **The Discrepancy of Internal Champions (ConvNeXt-V2 vs. DINOv2):** While **ConvNeXt-V2-Tiny** (Internal Rank #1) and **DINOv2-Small** (Internal Rank #2) dominated internal validation, they suffered noticeable performance drops when exposed to the GuWID-UnB OOD shift. 
    * *ConvNeXt-V2's Locality Bias:* Despite being a modernized CNN, its strong *inductive bias for local textures* overfitted to site-specific variables (CCMEO photography gear, ambient lighting conditions, specific cutaneous resolution), resulting in a performance drop ($\Delta$ AUC: $-0.0492$) and falling to 3rd place.
    * *DINOv2's Pre-training Bias:* DINOv2's massive self-supervised foundation weights carry a strong bias toward *everyday natural images (animals, scenery, everyday objects)*. While it segmented internal wounds efficiently, it tended to overfit to non-forensic macro-features, leading to the largest performance degradation among SOTA models ($\Delta$ AUC: $-0.0517$, dropping to 6th place) under severe demographic and camera property shifts.
-3. **The Hybrid & Pure ViT Generalization Triumph:**
-   In contrast, **MaxViT-Tiny** achieved the highest external validation AUC (0.8577, Rank #1) with minimal decay ($\Delta$ AUC: $-0.0061$). Its stacked grid-attention architecture seamlessly fuses local CNN features with global context layers, neutralizing site-specific noise. Similarly, **ViT-Small** (Rank #2) demonstrated the absolute minimal performance gap ($\Delta$ AUC of only $-0.0028$) because its non-local *global attention mechanism* looks past micro-pixel variations and directly focuses on the invariant, macro-geometric architecture of gunshot wounds (e.g., circular abrasion margins vs. irregular lacerated tears).
+3. **The CNN-ViT Hybrid & Pure ViT Generalization Triumph:**
+   In contrast, **MaxViT-Tiny** achieved the highest external validation AUC (0.8577, Rank #1) with minimal decay ($\Delta$ AUC: $-0.0061$). This **CNN-ViT Hybrid** approach seamlessly fuses local CNN features with global context layers, neutralizing site-specific noise. Similarly, **ViT-Small** (Rank #2) demonstrated the absolute minimal performance gap ($\Delta$ AUC of only $-0.0028$) because its non-local *global attention mechanism* looks past micro-pixel variations and directly focuses on the invariant, macro-geometric architecture of gunshot wounds (e.g., circular abrasion margins vs. irregular lacerated tears).
 4. **The CNN Brittleness Discovery:** While light CNN frameworks like **EfficientNet-B0** performed acceptably during internal validation, they collapsed under the massive 2,554-image GuWID-UnB dataset (AUC dropping down to **0.7322**, $\Delta$ AUC: $-0.0549$), highlighting that classic standard CNNs suffer from critical spatial distribution over-fitting. This discovery underscores the absolute necessity of moving toward Transformer-based Global Context architectures in modern computational forensics.
 
 ---
@@ -145,16 +145,16 @@ Robustness check on completely independent data (2,554 images) with cross-valida
 ## 📈 Visualizations & Analytical Assets
 
 ### 1. Validation AUC Trajectory Across 20 Epochs
-The training history maps the longitudinal convergence behavior of the 9 architectures. Starred markers ($\star$) denote the precise peak where checkpoints were extracted, along with labeled raw AUC values. Modern Hybrid architectures (MaxViT, CoAtNet) and Transformer backbones establish elite representation stability over pure standard CNNs.
+The training history maps the longitudinal convergence behavior of the 9 architectures. Starred markers ($\star$) denote the precise peak where checkpoints were extracted, along with labeled raw AUC values. Modern **CNN-ViT Hybrid** architectures (MaxViT, CoAtNet) and Transformer backbones establish elite representation stability over pure standard CNNs.
 ![Epoch AUC Trend](CCMEO_9_models_validation_auc_trajectory.png)
 
 ### 2. Integrated ROC Curves (Internal vs. External Validation)
-The Receiver Operating Characteristic (ROC) curves illustrate discriminative performance. While standard CNN backbones like EfficientNet-B0 experience severe performance degradation when shifted to the GuWID-UnB dataset, Hybrid and ViT networks maintain strong generalization bounds, proving their robust global context capacity.
+The Receiver Operating Characteristic (ROC) curves illustrate discriminative performance. While standard CNN backbones like EfficientNet-B0 experience severe performance degradation when shifted to the GuWID-UnB dataset, **CNN-ViT Hybrid** and ViT networks maintain strong generalization bounds, proving their robust global context capacity.
 
 #### Internal ROC Curve (CCMEO) vs. External ROC Curve (GuWID-UnB)
 | Internal ROC (CCMEO) | External ROC (GuWID-UnB) |
 | :---: | :---: |
-| ![Internal ROC Curves](CCMEO_9_models_internal_roc_curves.png) | ![External ROC Curves](CCMEO_9_models_external_roc_curves.png) |
+| ![Internal ROC Curves](CCMEO_9_models_internal_roc_curves.png) | ![External ROC Curves](GuWID_9_models_external_roc_curves.png) |
 
 ### 3. Multi-Architecture Confusion Matrices (3x3 Grid Layout)
 A complete 3x3 grid layout mapping out the exact classification distribution (True vs. Predicted Labels) across all 9 models. Cell values display raw sample counts alongside percentage ratios to reveal precise directional error tendencies under severe domain shifts.
