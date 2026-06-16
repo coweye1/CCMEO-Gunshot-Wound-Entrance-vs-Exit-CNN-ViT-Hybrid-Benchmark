@@ -1,5 +1,5 @@
 # CCMEO Gunshot Wound Image Analysis AI Benchmarking: Entrance vs. Exit Wound Classification
-Advanced deep learning benchmark study evaluating Convolutional Neural Network-based (CNN), Vision Transformer-based (ViT), and Hybrid SOTA Architectures on forensic pathology datasets at the Cook County Medical Examiner's Office (CCMEO) with Large-Scale External Validation on the GuWID-UnB Dataset.
+Advanced deep learning benchmark study evaluating Convolutional Neural Network-based (CNN), Vision Transformer-based (ViT), and CNN-ViT Hybrid SOTA Architectures on forensic pathology datasets at the Cook County Medical Examiner's Office (CCMEO) with Large-Scale External Validation on the GuWID-UnB Dataset.
 
 ---
 
@@ -10,13 +10,13 @@ Advanced deep learning benchmark study evaluating Convolutional Neural Network-b
 > 
 > This repository presents a comprehensive **AI Performance Exam (Benchmark Study)** that I designed to answer that exact question for forensic pathology. 
 > 
-> I personally trained **9 state-of-the-art computer vision models** using real-world, certified autopsy photography from the **Cook County Medical Examiner's Office (CCMEO)**. Then, to test their true diagnostic adaptability, I challenged them with a completely blind "Final Exam" using the independent **GuWID-UnB dataset** (constructed by Renato Queiroz Nogueira Lira et al., in collaboration with the University of Brasília and other institutions). 
+> I personally configured, trained, and evaluated 9 established Image AI models using real-world, certified autopsy photography from the **Cook County Medical Examiner's Office (CCMEO)**. Then, to test their true diagnostic adaptability, I challenged them with a completely blind "Final Exam" using the independent **GuWID-UnB dataset** (constructed by Renato Queiroz Nogueira Lira et al., in collaboration with the University of Brasília and other institutions). 
 > 
 > **Why this setup?** If a model trained on CCMEO data can still successfully classify images from an entirely different dataset (with different lighting, cameras, and backgrounds), it proves that the AI is not just "cheating" by memorizing site-specific photography styles. Instead, it demonstrates that the AI has truly learned to analyze the universal, authentic pathological features of gunshot wounds. This benchmarking strategy allows me to objectively evaluate and rank how well these models generalize to real-world forensic environments across different institutions.
 
 In forensic pathology, distinguishing between **Entrance Wounds** and **Exit Wounds** is a critical task for reconstructing shooting incidents, determining bullet trajectories, and providing medical-legal testimony. 
 
-This repository implements and benchmarks 9 state-of-the-art computer vision architectures, divided into **3 different algorithmic approaches to image recognition**: **Convolutional Neural Networks (CNN)**, **Vision Transformers (ViT)**, and **Hybrid CNN-ViT models**. The goal of this study is to evaluate their capacity to automate and objectively analyze morphology patterns in gunshot wound trauma. Leveraging pure PyTorch and `timm`, all models were evaluated on high-resolution forensic autopsy datasets from the CCMEO and further stress-tested via large-scale external validation to verify real-world algorithmic safety and robustness against severe domain shifts.
+This repository implements and benchmarks 9 state-of-the-art computer vision architectures, divided into **3 different algorithmic approaches to image recognition**: **Convolutional Neural Networks (CNN)**, **Vision Transformers (ViT)**, and **CNN-ViT Hybrid models**. The goal of this study is to evaluate their capacity to automate and objectively analyze morphology patterns in gunshot wound trauma. Leveraging pure PyTorch and `timm`, all models were evaluated on high-resolution forensic autopsy datasets from the CCMEO and further stress-tested via large-scale external validation to verify real-world algorithmic safety and robustness against severe domain shifts.
 
 ---
 
